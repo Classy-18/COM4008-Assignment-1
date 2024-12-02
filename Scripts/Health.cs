@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour {
+    public  Animator animator;
 
     public int health; //set the current health of the player
     public int numOfHearts; //set the total health of the player
@@ -36,10 +37,12 @@ public class Health : MonoBehaviour {
 public void TakeDamage(int damage) 
     {
         health -= damage;
+        animator.SetTrigger("Hurt");
         if (health <= 0)
         {
             Destroy(gameObject);
         }
+
     }
 public void ExtraHeart()
     {
